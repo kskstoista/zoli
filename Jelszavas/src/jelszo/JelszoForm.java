@@ -20,17 +20,17 @@ public class JelszoForm extends JFrame {
 	JLabel info;
 	
 	public JelszoForm() {
-		super("Jelsz� adatb�zis");
+		super("Jelszo adatbazis");
 
 		setLayout(new FlowLayout());
 
 		
 		jelszo = new JTextField("jelszo", 8);
-		felhasznaloNev = new JTextField("felhasznal� n�v: ", 8);
+		felhasznaloNev = new JTextField("felhasznalo nev: ", 8);
 		weboldal = new JTextField("weboldal", 12);
-		mentes = new JButton("Ment�s");
+		mentes = new JButton("Mentes");
 		
-		keres = new JButton("Keres�s");
+		keres = new JButton("Kereses");
 		keresettOldal = new JTextField("keresett oldal");
 		info = new JLabel();
 		
@@ -40,7 +40,7 @@ public class JelszoForm extends JFrame {
 			public void focusLost(FocusEvent e) {
 				// TODO Auto-generated method stub
 				if (felhasznaloNev.getText().length() == 0){ 	//felhasznaloNev.getText().equals("")
- 					felhasznaloNev.setText("felhaszn�l� n�v");
+ 					felhasznaloNev.setText("felhasznalo nev");
 				}
 			}
 			
@@ -78,8 +78,8 @@ public class JelszoForm extends JFrame {
 					e1.printStackTrace();
 				}
 
-				felhasznaloNev.setText("Felhaszn�l� N�v");
-				jelszo.setText("Jelsz�");
+				felhasznaloNev.setText("Felhasznalo Nev");
+				jelszo.setText("Jelszo");
 				weboldal.setText("Weboldal");
 
 			}

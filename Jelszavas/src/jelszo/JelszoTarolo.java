@@ -27,7 +27,7 @@ public class JelszoTarolo implements HozzaferesMento {
 	public void hozzaferesMentese(Hozzaferes h) throws SikertelenMentersException {
 		
 		hozzaferesek.put(h.weboldal, h);
-		System.out.println(hozzaferesek.size() + "hoz�f�r�s van");
+		System.out.println(hozzaferesek.size() + "hozaferes van");
 	}
 	
 	public Hozzaferes hozzaferesEleres(String weboldal) {
