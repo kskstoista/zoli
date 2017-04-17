@@ -1,1 +1,1 @@
-{"userName":"zoli","password":"Jelszo"}
+{"userName":"Felhasználó Név","password":"Jelszo"}
