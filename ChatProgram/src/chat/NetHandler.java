@@ -1,6 +1,7 @@
 package chat;
 
 import java.beans.FeatureDescriptor;
+import com.google.gson.Gson;
 
 public class NetHandler {
 
@@ -46,16 +47,33 @@ public class NetHandler {
 		}
 	}
 
-	public String getMessages(){
+	public String getMessages() {
 		try {
-			return serverCommunicatorObject.sendGet("message");
-		} catch (Exception e){
+			return messageFeldolgozo(serverCommunicatorObject.sendGet("message"));
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-			return "";
+		return "";
 	}
-	
+
 	public String getFelhasznaloNev() {
 		return this.belepettFelhasznalo.userName;
 	}
+
+	private String messageFeldolgozo(String uzik) {
+		String visszateroUzik = "";
+		Gson gson = new Gson();
+		ReceivedMessages msg = gson.fromJson(uzik, ReceivedMessages.class);
+
+		if (msg.error.erorCode == -1) {
+			for (MessageObject m : msg.uzenetLista) {
+				visszateroUzik = visszateroUzik + m.sender + " : " + m.message + "\n";
+			}
+		} else {
+
+			visszateroUzik = "Server Error";
+		}
+		return visszateroUzik;
+	}
+
 }

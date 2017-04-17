@@ -125,10 +125,8 @@ public class ChatForm extends JFrame {
 			}
 		});
 		
-		//public String processMessage (String uzik){
-			
-	//	}
-	
+		
+		
 		
 		/*	szoveg.addFocusListener(new FocusListener() {
 
