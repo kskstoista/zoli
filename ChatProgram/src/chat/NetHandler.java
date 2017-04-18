@@ -1,6 +1,7 @@
 package chat;
 
 import java.beans.FeatureDescriptor;
+import java.util.Collections;
 
 import javax.swing.plaf.synth.SynthOptionPaneUI;
 
@@ -67,7 +68,7 @@ public class NetHandler {
 		String visszateroUzik = "";
 		Gson gson = new Gson();
 		ReceivedMessages msg = gson.fromJson(uzik, ReceivedMessages.class);
-        
+		Collections.sort(msg.messages);
 		if (msg.errorCode == -1) {
 			for (MessageObject m : msg.messages) {
 				visszateroUzik = visszateroUzik + m.sender + " : " + m.message + "\n";
