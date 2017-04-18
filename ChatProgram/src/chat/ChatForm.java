@@ -18,36 +18,35 @@ import javax.swing.JTextField;
 import javax.swing.Scrollable;
 
 public class ChatForm extends JFrame {
-	
+
 	JLabel szereplokLabel;
 	JTextField szoveg, kijelzo;
 	JButton send, hi, wow, whatsup, miauu, thanks, refresh;
 	JTextArea mezo;
 	JTextArea szereplok;
 	NetHandler halo;
-	JLabel label; 
+	JLabel label;
 	UserKezelo belepettFelhasznalo;
-	
+
 	public ChatForm() {
 		super(" Chat");
 		halo = new NetHandler();
-		
-		new JelszoForm(this,halo);
-		
+
+		new JelszoForm(this, halo);
+
 		setLayout(new FlowLayout());
 
 		szereplokLabel = new JLabel("Online vannak: ");
 		szoveg = new JTextField(30);
 		mezo = new JTextArea("Chat mezõ");
-		mezo = new JTextArea(10, 25);
+		mezo = new JTextArea(30, 55);
 		JScrollPane scrollPane = new JScrollPane(mezo);
-		
-		
-		szereplok = new JTextArea(50,25);
+
+		szereplok = new JTextArea(50, 27);
 		szereplok = new JTextArea(halo.getFelhasznaloNev());
-		
+
 		label = new JLabel("belépve mint: " + halo.getFelhasznaloNev());
-		
+
 		send = new JButton("Send");
 		hi = new JButton("Hi");
 		wow = new JButton("WoW");
@@ -55,7 +54,7 @@ public class ChatForm extends JFrame {
 		miauu = new JButton("miauu");
 		thanks = new JButton("Thanks");
 		refresh = new JButton("Refresh");
-		
+
 		hi.addActionListener(new ActionListener() {
 
 			@Override
@@ -101,7 +100,8 @@ public class ChatForm extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				mezo.append("Thanks" + "\n" );  //a fenti mezõbe irás, késöbb majd nem kell    
+				mezo.append("Thanks" + "\n"); // a fenti mezõbe irás, késöbb
+												// majd nem kell
 				halo.sendMessage("Thanks");
 			}
 		});
@@ -112,40 +112,34 @@ public class ChatForm extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				halo.sendMessage(szoveg.getText());
-				
+
 			}
 		});
-		
+
 		refresh.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				mezo.append(halo.getMessages() + "\n");
 			}
 		});
-		
-		
-		
-		
-		/*	szoveg.addFocusListener(new FocusListener() {
 
-			@Override
-			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void focusGained(FocusEvent e) {
-				// TODO Auto-generated method stub
-				szoveg.setText("");
-				
-			}
-		});
-			
-		
-		*/
+		/*
+		 * szoveg.addFocusListener(new FocusListener() {
+		 * 
+		 * @Override public void focusLost(FocusEvent e) { // TODO
+		 * Auto-generated method stub
+		 * 
+		 * }
+		 * 
+		 * @Override public void focusGained(FocusEvent e) { // TODO
+		 * Auto-generated method stub szoveg.setText("");
+		 * 
+		 * } });
+		 * 
+		 * 
+		 */
 		add(szereplokLabel);
 		add(szereplok);
 		add(scrollPane);
@@ -156,18 +150,19 @@ public class ChatForm extends JFrame {
 		add(thanks);
 		add(szoveg);
 		add(send);
-		add(refresh); //tempi
+		add(refresh); // tempi
 		add(label);
-		
-		setSize(500, 350);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setVisible(true);
 
+		setSize(640, 700);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+		setVisible(true);
+		setResizable(false);
 	}
 
 	public static void main(String[] args) {
 		new ChatForm();
-		
+
 	}
 
 }

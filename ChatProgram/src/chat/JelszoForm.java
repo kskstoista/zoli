@@ -21,7 +21,7 @@ public class JelszoForm extends JDialog {
 
 	JTextField felhasznaloNev;
 	JTextField jelszo;
-	JButton belepes, regisztracio;
+	JButton belepes;
 
 	public JelszoForm(Frame parent, NetHandler loginHalo) {
 		super(parent, "Login", true);
@@ -35,7 +35,6 @@ public class JelszoForm extends JDialog {
 		jelszo = new JTextField("Jelszo", 10);
 		felhasznaloNev = new JTextField("Felhasználó Név", 10);
 		belepes = new JButton("Belépés");
-		regisztracio = new JButton("Regisztráció");
 		
 		
 		
@@ -73,7 +72,7 @@ public class JelszoForm extends JDialog {
 			}
 		});
 
-		belepes.addActionListener(new ActionListener() {
+		/*belepes.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -85,8 +84,8 @@ public class JelszoForm extends JDialog {
 				//dispose();
 			}
 		});
-
-		regisztracio.addActionListener(new ActionListener() {
+*/
+		belepes.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -97,8 +96,8 @@ public class JelszoForm extends JDialog {
 			}
 		});
 		
-		add(regisztracio);
 		add(belepes);
+		//add(belepes);
 		add(felhasznaloNev);
 		add(jelszo);
 
