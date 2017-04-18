@@ -60,12 +60,13 @@ public class NetHandler {
 		return this.belepettFelhasznalo.userName;
 	}
 
-	private String messageFeldolgozo(String uzik) {
+	public String messageFeldolgozo(String uzik) {
 		String visszateroUzik = "";
 		Gson gson = new Gson();
 		ReceivedMessages msg = gson.fromJson(uzik, ReceivedMessages.class);
 
-		if (msg.error.erorCode == -1) {
+		
+		if (msg.errorCode == -1) {
 			for (MessageObject m : msg.uzenetLista) {
 				visszateroUzik = visszateroUzik + m.sender + " : " + m.message + "\n";
 			}
