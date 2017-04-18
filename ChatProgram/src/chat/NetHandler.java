@@ -1,6 +1,9 @@
 package chat;
 
 import java.beans.FeatureDescriptor;
+
+import javax.swing.plaf.synth.SynthOptionPaneUI;
+
 import com.google.gson.Gson;
 
 public class NetHandler {
@@ -64,10 +67,9 @@ public class NetHandler {
 		String visszateroUzik = "";
 		Gson gson = new Gson();
 		ReceivedMessages msg = gson.fromJson(uzik, ReceivedMessages.class);
-
-		
+        
 		if (msg.errorCode == -1) {
-			for (MessageObject m : msg.uzenetLista) {
+			for (MessageObject m : msg.messages) {
 				visszateroUzik = visszateroUzik + m.sender + " : " + m.message + "\n";
 			}
 		} else {

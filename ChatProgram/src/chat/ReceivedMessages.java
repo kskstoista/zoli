@@ -1,10 +1,9 @@
 package chat;
 
-import java.util.List;
-import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 
 public class ReceivedMessages {
 	int errorCode;
-	List<MessageObject> uzenetLista;
+	ArrayList<MessageObject> messages;
 	
 }

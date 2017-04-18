@@ -13,7 +13,7 @@ public class NetHandlerTest {
         NetHandler n = new NetHandler();
 		String valasz = n.messageFeldolgozo(testUzi);
 		assertNotNull(valasz);
-		System.out.println("valasz:" + valasz);
+		//System.out.println("valasz:" + valasz);
 	}
 
 }
